@@ -8,16 +8,8 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index(){
-        $post_1 = Post::find(7);
         $posts = Post::all();
-        $pos = Post::where('likes', 40)->get();
-        foreach ($posts as $post) {
-            dump($post->title);
-        }
-        foreach ($pos as $post) {
-            dump($post->likes);
-        }
-        dd($post_1);
+        return view('posts', compact('posts'));
     }
     public function create(){
         $postsArr = [
